@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coding Club @ 10X</title>
+    <title>10X International School Coding Club</title>
     <style>
         body {
             margin: 0;
@@ -20,20 +20,18 @@
 
         header {
             background-color: #1e1e1e;
-            padding: 20px;
+            padding: 10px 20px; /* Reduced padding */
             text-align: center;
             border-bottom: 2px solid #0cf;
             transition: top 0.3s;
-            position: fixed;
-            width: 100%;
-            top: 0;
+            position: relative; /* Changed from fixed to relative */
             z-index: 1000;
         }
 
         header h1 {
             margin: 0;
             color: #0cf;
-            font-size: 2.5rem;
+            font-size: 2rem; /* Reduced font size */
         }
 
         nav {
@@ -41,6 +39,9 @@
             justify-content: center;
             background-color: #1b1b1b;
             padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 999; /* Ensures nav stays above content */
         }
 
         nav a {
@@ -59,7 +60,7 @@
         }
 
         .container {
-            padding: 100px 20px 20px; /* Adjusted for sticky header */
+            padding: 60px 20px 20px; /* Adjusted padding to accommodate sticky nav */
             max-width: 1200px;
             margin: auto;
             opacity: 0;
@@ -190,7 +191,7 @@
                     const targetId = this.getAttribute('href').substring(1);
                     const target = document.getElementById(targetId);
                     window.scrollTo({
-                        top: target.offsetTop - 80, // Adjust for sticky header
+                        top: target.offsetTop - 60, // Adjust for sticky header
                         behavior: 'smooth'
                     });
                 });
@@ -236,10 +237,10 @@
         <!-- Gallery Page -->
         <section>
             <h2 class="section-title">Gallery</h2>
-            <img src="/Users/pranavm/Desktop/codingclub10X.github.io/31343C.svg" alt="Gallery Image 1">
-            <img src="/Users/pranavm/Desktop/codingclub10X.github.io/31343C.svg" alt="Gallery Image 2">
-            <img src="/Users/pranavm/Desktop/codingclub10X.github.io/31343C.svg" alt="Gallery Image 3">
-            <img src="/Users/pranavm/Desktop/codingclub10X.github.io/31343C.svg" alt="Gallery Image 4">
+            <img src="https://via.placeholder.com/400x300" alt="Gallery Image 1">
+            <img src="https://via.placeholder.com/400x300" alt="Gallery Image 2">
+            <img src="https://via.placeholder.com/400x300" alt="Gallery Image 3">
+            <img src="https://via.placeholder.com/400x300" alt="Gallery Image 4">
         </section>
     </div>
 
@@ -248,22 +249,22 @@
         <section>
             <h2 class="section-title">Project Showcase</h2>
             <div class="project">
-                <h3>Project 1: AI-Powered Chatbot</h3>
-                <p>Our team developed an AI-powered chatbot that helps students with their coding assignments by providing instant feedback and suggestions. The chatbot is built using natural language processing techniques and is integrated into our club's website for easy access.</p>
+                <h3>Project 1: Insert Text</h3>
+                <p>insert text</p>
             </div>
             <div class="project">
-                <h3>Project 2: Web Development Portfolio</h3>
-                <p>Members of our club created a portfolio website that showcases their web development skills. The site features various projects, including responsive designs, interactive elements, and custom-built components.</p>
+                <h3>Project 2: Insert Text</h3>
+                <p>insert text</p>
             </div>
             <div class="project">
-                <h3>Project 3: Mobile App Development</h3>
-                <p>Our club members collaborated on a mobile app that helps users track their daily coding progress. The app includes features such as goal setting, progress tracking, and motivational reminders to keep users on track with their learning.</p>
+                <h3>Project 3: Insert Text</h3>
+                <p>insert text</p>
             </div>
         </section>
     </div>
 
     <footer>
-        <p>&copy; 2024 10X International School Coding Club. All rights reserved.</p>
+        <p>&copy; 2024 - 10X International School Coding Club. All rights reserved.</p>
     </footer>
 </body>
 </html>
