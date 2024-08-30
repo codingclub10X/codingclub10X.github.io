@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>10X International School Coding Club</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;700&display=swap');
 
         body {
             margin: 0;
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Roboto', sans-serif;
             background-color: #121212;
             color: #ffffff;
             overflow-x: hidden;
@@ -34,6 +34,7 @@
             margin: 0;
             color: #0cf;
             font-size: 2rem;
+            font-family: 'Orbitron', sans-serif;
         }
 
         nav {
@@ -54,6 +55,7 @@
             padding: 5px 10px;
             border-radius: 5px;
             transition: background-color 0.3s ease;
+            font-family: 'Orbitron', sans-serif;
         }
 
         nav a:hover {
@@ -80,62 +82,51 @@
             margin-bottom: 20px;
             border-bottom: 2px solid #0cf;
             padding-bottom: 10px;
+            font-family: 'Orbitron', sans-serif;
         }
 
         /* Home Page */
         #home {
             text-align: center;
-            padding: 50px 0;
-            background: linear-gradient(to right, #0cf, #121212);
-            color: #121212;
+            padding: 100px 20px;
+            background-image: url('/Users/pranavm/Desktop/codingclub10X.github.io/2023-09-10.png');
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            position: relative;
+        }
+
+        #home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* Tint overlay */
+            z-index: 1;
         }
 
         #home h2 {
             font-size: 3rem;
             margin-bottom: 20px;
-            color: #ffffff;
+            z-index: 2;
+            position: relative;
+            color: #0cf;
+            font-family: 'Orbitron', sans-serif;
             text-shadow: 2px 2px 4px #000000;
         }
 
         #home p {
             font-size: 1.5rem;
             line-height: 1.6;
-            color: #ffffff;
             max-width: 800px;
             margin: 20px auto;
+            z-index: 2;
+            position: relative;
+            color: #ffffff;
+            font-family: 'Roboto', sans-serif;
             text-shadow: 1px 1px 2px #000000;
-        }
-
-        #home .features {
-            display: flex;
-            justify-content: center;
-            margin-top: 40px;
-        }
-
-        #home .feature-box {
-            background-color: #1b1b1b;
-            padding: 20px;
-            margin: 10px;
-            border-radius: 10px;
-            max-width: 300px;
-            text-align: left;
-            box-shadow: 0 4px 8px rgba(0, 204, 255, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        #home .feature-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 204, 255, 0.5);
-        }
-
-        #home .feature-box h3 {
-            color: #0cf;
-            margin-bottom: 15px;
-        }
-
-        #home .feature-box p {
-            font-size: 1.1rem;
-            line-height: 1.4;
         }
 
         /* Gallery Page */
@@ -163,6 +154,32 @@
         #gallery img:hover {
             transform: scale(1.05);
             box-shadow: 0 5px 15px rgba(0, 204, 255, 0.5);
+        }
+
+        /* Project Showcase Page */
+        .project {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 20px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 204, 255, 0.5);
+        }
+
+        .project h3 {
+            margin-top: 0;
+            color: #0cf;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .project p {
+            margin-bottom: 0;
+            line-height: 1.6;
         }
 
         /* Image Modal */
@@ -252,6 +269,7 @@
             margin: 0;
             color: #ffffff;
             font-size: 1rem;
+            font-family: 'Roboto', sans-serif;
         }
     </style>
     <script>
@@ -324,23 +342,6 @@
         <section>
             <h2>Welcome to the 10X Coding Club</h2>
             <p><strong>Vision:</strong> To empower future innovators to make a meaningful impact through collaboration and technology.</p>
-            <p>Our mission is to foster the next generation of coders and innovators by providing a platform for students to learn, create, and showcase their projects.</p>
-            <p>Join us as we explore the exciting world of programming and technology!</p>
-
-            <div class="features">
-                <div class="feature-box">
-                    <h3>Learn and Grow</h3>
-                    <p>Participate in hands-on coding lessons designed to build your skills in AI and Web Development. Whether you're a beginner or advanced, there's something for everyone.</p>
-                </div>
-                <div class="feature-box">
-                    <h3>Collaborate</h3>
-                    <p>Work with like-minded peers on innovative projects that tackle real-world problems. Collaboration is at the heart of what we do.</p>
-                </div>
-                <div class="feature-box">
-                    <h3>Showcase Your Work</h3>
-                    <p>Show off your projects and compete in hackathons to gain recognition and experience. Your hard work won't go unnoticed.</p>
-                </div>
-            </div>
         </section>
     </div>
 
