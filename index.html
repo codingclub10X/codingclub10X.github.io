@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>10X International School Coding Club</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Orbitron', sans-serif;
             background-color: #121212;
             color: #ffffff;
             overflow-x: hidden;
@@ -20,18 +22,18 @@
 
         header {
             background-color: #1e1e1e;
-            padding: 10px 20px; /* Reduced padding */
+            padding: 10px 20px;
             text-align: center;
             border-bottom: 2px solid #0cf;
             transition: top 0.3s;
-            position: relative; /* Changed from fixed to relative */
+            position: relative;
             z-index: 1000;
         }
 
         header h1 {
             margin: 0;
             color: #0cf;
-            font-size: 2rem; /* Reduced font size */
+            font-size: 2rem;
         }
 
         nav {
@@ -41,7 +43,7 @@
             padding: 15px;
             position: sticky;
             top: 0;
-            z-index: 999; /* Ensures nav stays above content */
+            z-index: 999;
         }
 
         nav a {
@@ -60,7 +62,7 @@
         }
 
         .container {
-            padding: 60px 20px 20px; /* Adjusted padding to accommodate sticky nav */
+            padding: 60px 20px 20px;
             max-width: 1200px;
             margin: auto;
             opacity: 0;
@@ -80,46 +82,10 @@
             padding-bottom: 10px;
         }
 
-        /* Home Page */
-        #home {
-            text-align: center;
-            padding: 50px 0;
-        }
-
-        #home h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: #0cf;
-        }
-
-        #home p {
-            font-size: 1.2rem;
-            line-height: 1.6;
-        }
-
-        /* About Us Page */
-        #about {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-
-        #about img {
-            max-width: 100%;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
-        #about div {
-            flex: 1;
-            min-width: 300px;
-            margin: 20px;
-        }
-
         /* Gallery Page */
         #gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             grid-gap: 20px;
         }
 
@@ -127,6 +93,7 @@
             width: 100%;
             border-radius: 10px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
         }
 
         #gallery img:hover {
@@ -134,33 +101,79 @@
             box-shadow: 0 5px 15px rgba(0, 204, 255, 0.5);
         }
 
-        /* Project Showcase Page */
-        #projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            grid-gap: 20px;
+        /* Image Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
         }
 
-        .project {
-            background-color: #1e1e1e;
-            padding: 20px;
-            border-radius: 10px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
         }
 
-        .project:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 204, 255, 0.5);
+        .modal-content, .prev, .next {
+            animation-name: zoom;
+            animation-duration: 0.6s;
         }
 
-        .project h3 {
-            margin-top: 0;
+        @keyframes zoom {
+            from {transform: scale(0.1)} 
+            to {transform: scale(1)}
+        }
+
+        .close {
+            position: absolute;
+            top: 30px;
+            right: 35px;
+            color: #ffffff;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbbbbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -50px;
             color: #0cf;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.3s;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
-        .project p {
-            margin-bottom: 0;
-            line-height: 1.6;
+        .prev:hover, .next:hover {
+            color: #ffffff;
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
         }
 
         footer {
@@ -180,6 +193,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             document.body.classList.add("loaded");
+
             const containers = document.querySelectorAll('.container');
             containers.forEach(container => {
                 container.classList.add('visible');
@@ -191,11 +205,42 @@
                     const targetId = this.getAttribute('href').substring(1);
                     const target = document.getElementById(targetId);
                     window.scrollTo({
-                        top: target.offsetTop - 60, // Adjust for sticky header
+                        top: target.offsetTop - 60,
                         behavior: 'smooth'
                     });
                 });
             });
+
+            // Gallery modal logic
+            const modal = document.getElementById("myModal");
+            const modalImg = document.getElementById("img01");
+            const images = document.querySelectorAll("#gallery img");
+            const closeBtn = document.getElementsByClassName("close")[0];
+            const prevBtn = document.getElementsByClassName("prev")[0];
+            const nextBtn = document.getElementsByClassName("next")[0];
+            let currentIndex;
+
+            images.forEach((img, index) => {
+                img.addEventListener('click', function() {
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
+                    currentIndex = index;
+                });
+            });
+
+            closeBtn.onclick = function() { 
+                modal.style.display = "none";
+            }
+
+            prevBtn.onclick = function() {
+                currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+                modalImg.src = images[currentIndex].src;
+            }
+
+            nextBtn.onclick = function() {
+                currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+                modalImg.src = images[currentIndex].src;
+            }
         });
     </script>
 </head>
@@ -224,11 +269,25 @@
         <section>
             <h2 class="section-title">About Us</h2>
             <div>
-                <p>The 10X International School Coding Club is a student-led organization that aims to empower students with the skills and knowledge needed to excel in the field of computer science. We offer workshops, coding sessions, and project-based learning experiences that cater to all levels of expertise.</p>
-                <p>Our club is dedicated to promoting creativity, critical thinking, and collaboration among our members. We believe in the power of technology to solve real-world problems, and we strive to make coding accessible and fun for everyone.</p>
-            </div>
-            <div>
-                <img src="https://via.placeholder.com/500x300" alt="Coding Club">
+                <p><strong>Vision:</strong><br>
+                To empower future innovators to make a meaningful impact through collaboration and technology.</p>
+
+                <p><strong>Mission:</strong><br>
+                Our mission is to work together with members of the club on problem-solving projects related to AI and Web Development, conduct computer programming lessons with IICS students, and build coding skills in students to make them future-ready.</p>
+
+                <p><strong>Activities:</strong></p>
+                <ul>
+                    <li>Collaboration on projects that have a real-world impact (1 AI-themed project and 1 Web Development project)</li>
+                    <li>Conducting periodical lessons on computer literacy and basic programming for IICS students</li>
+                    <li>Preparation for and participation in hackathons/competitions as a team (representing 10X)</li>
+                </ul>
+
+                <p><strong>Objectives:</strong></p>
+                <ul>
+                    <li>To foster an environment that improves students’ collaboration, programming, critical and computational thinking, and analytical skills.</li>
+                    <li>To inspire creativity and innovation</li>
+                    <li>To make students future-ready</li>
+                </ul>
             </div>
         </section>
     </div>
@@ -237,10 +296,13 @@
         <!-- Gallery Page -->
         <section>
             <h2 class="section-title">Gallery</h2>
-            <img src="https://via.placeholder.com/400x300" alt="Gallery Image 1">
-            <img src="https://via.placeholder.com/400x300" alt="Gallery Image 2">
-            <img src="https://via.placeholder.com/400x300" alt="Gallery Image 3">
-            <img src="https://via.placeholder.com/400x300" alt="Gallery Image 4">
+            <div id="gallery">
+                <img src="https://via.placeholder.com/400x300" alt="Gallery Image 1">
+                <img src="https://via.placeholder.com/400x300" alt="Gallery Image 2">
+                <img src="https://via.placeholder.com/400x300" alt="Gallery Image 3">
+                <img src="https://via.placeholder.com/400x300" alt="Gallery Image 4">
+                <!-- Add more images as needed -->
+            </div>
         </section>
     </div>
 
@@ -264,7 +326,15 @@
     </div>
 
     <footer>
-        <p>&copy; 2024 - 10X International School Coding Club. All rights reserved.</p>
+        <p>&copy; 2024 10X International School Coding Club. All rights reserved.</p>
     </footer>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <a class="prev">&#10094;</a>
+        <a class="next">&#10095;</a>
+    </div>
 </body>
 </html>
