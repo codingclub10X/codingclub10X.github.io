@@ -186,6 +186,7 @@
         .project p {
             margin-bottom: 0;
             line-height: 1.6;
+            transition: color 0.3s ease;
         }
 
         /* Image Modal */
@@ -323,6 +324,11 @@
             background-color: #1e1e1e;
             text-align: center;
             margin-bottom: 40px; /* Adds space below the map */
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .map-container h2 {
+            transition: color 0.3s ease;
         }
 
         /* Loading Spinner */
@@ -355,12 +361,23 @@
         .light-mode {
             background-color: #f0f0f0;
             color: #121212;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        .light-mode header, .light-mode nav, .light-mode footer {
+        .light-mode header, 
+        .light-mode nav, 
+        .light-mode footer, 
+        .light-mode .map-container, /* Ensures the background for the map container stays light */
+        .light-mode .project {
             background-color: #ffffff;
             color: #121212;
-            border-bottom: 2px solid #0cf;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .light-mode .project p, 
+        .light-mode .map-container h2 {
+            color: #121212; /* Ensures the text color stays visible */
+            transition: color 0.3s ease;
         }
 
         .light-mode header h1, 
@@ -748,9 +765,9 @@
 
     <!-- Testimonials Section -->
     <div class="testimonials">
-        <h2>What Our Members Say</h2><br>
+        <h2>What Our Members Say</h2>
         <blockquote>"Joining the 10X Coding Club has been a game-changer for my coding and communication skills!" - Aryan Hande (Grade 11)</blockquote>
-        <blockquote>"The collaborative projects have taught me so much about problem-solving." - Pratosh (Grade 12)</blockquote>
+        <blockquote>"The collaborative projects have taught me so much about problem-solving." - Pratosh Tiwari (Grade 12)</blockquote>
     </div>
 
     <!-- Interactive Map Section -->
