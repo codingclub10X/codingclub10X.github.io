@@ -13,7 +13,7 @@
             background-color: #121212;
             color: #ffffff;
             overflow-x: hidden;
-            transition: opacity 0.5s ease;
+            transition: all 0.5s ease;
             scroll-behavior: smooth;
         }
 
@@ -26,7 +26,7 @@
             padding: 10px 20px;
             text-align: center;
             border-bottom: 2px solid #0cf;
-            transition: top 0.3s;
+            transition: all 0.3s ease;
             position: relative;
             z-index: 1000;
         }
@@ -46,6 +46,7 @@
             position: sticky;
             top: 0;
             z-index: 999;
+            transition: all 0.3s ease;
         }
 
         nav a {
@@ -55,7 +56,7 @@
             font-size: 1.1rem;
             padding: 5px 10px;
             border-radius: 5px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, color 0.3s ease;
             font-family: 'Orbitron', sans-serif;
         }
 
@@ -107,6 +108,7 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.6); /* Tint overlay */
             z-index: 1;
+            transition: background-color 0.3s ease;
         }
 
         #home h2 {
@@ -117,6 +119,7 @@
             color: #0cf;
             font-family: 'Orbitron', sans-serif;
             text-shadow: 2px 2px 4px #000000;
+            transition: color 0.3s ease;
         }
 
         #home p {
@@ -129,6 +132,7 @@
             color: #ffffff;
             font-family: 'Roboto', sans-serif;
             text-shadow: 1px 1px 2px #000000;
+            transition: color 0.3s ease;
         }
 
         /* Gallery Page */
@@ -265,6 +269,7 @@
             padding: 20px;
             margin-top: 40px;
             border-top: 2px solid #0cf;
+            transition: all 0.3s ease;
         }
 
         footer p {
@@ -272,6 +277,7 @@
             color: #ffffff;
             font-size: 1rem;
             font-family: 'Roboto', sans-serif;
+            transition: color 0.3s ease;
         }
 
         /* Back to Top Button */
@@ -316,6 +322,7 @@
             padding: 40px 20px;
             background-color: #1e1e1e;
             text-align: center;
+            margin-bottom: 40px; /* Adds space below the map */
         }
 
         /* Loading Spinner */
@@ -337,17 +344,48 @@
             left: 20px;
             z-index: 100;
             cursor: pointer;
+            width: 24px;  /* Smaller icon size */
+            height: 24px; /* Smaller icon size */
+            background-color: white; /* White background for the circle */
+            border-radius: 50%;  /* Make it a circle */
+            padding: 13px;  /* Center the smaller icon within the 50x50 circle */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Optional: adds a subtle shadow for better visibility */
         }
+
         .light-mode {
             background-color: #f0f0f0;
             color: #121212;
         }
+
         .light-mode header, .light-mode nav, .light-mode footer {
             background-color: #ffffff;
+            color: #121212;
+            border-bottom: 2px solid #0cf;
         }
-        .light-mode #back-to-top {
-            background-color: #121212;
+
+        .light-mode header h1, 
+        .light-mode footer p,
+        .light-mode .social-icons img {
+            color: #121212;
+        }
+
+        .light-mode nav a {
+            color: #121212;
+        }
+
+        .light-mode nav a:hover {
+            background-color: #0cf;
             color: #ffffff;
+        }
+
+        .light-mode #home h2,
+        .light-mode #home p {
+            color: #121212;
+            text-shadow: none;
+        }
+
+        .light-mode #home::before {
+            background-color: rgba(255, 255, 255, 0.6);
         }
 
         /* Call to Action Section */
@@ -372,18 +410,26 @@
             color: #ffffff;
         }
 
-        /* Contact Form Section */
         .contact-form {
             padding: 40px 20px;
             background-color: #1e1e1e;
             color: #ffffff;
             max-width: 600px;
             margin: auto;
+            margin-top: 40px; /* Optional: Adds space above the contact form */
+            transition: background-color 0.3s ease;
         }
+
+        .light-mode .contact-form {
+            background-color: #f0f0f0;
+            color: #121212;
+        }
+
         .contact-form h2 {
             color: #0cf;
             margin-bottom: 20px;
         }
+
         .contact-form form input, .contact-form form textarea {
             width: 100%;
             padding: 10px;
@@ -392,7 +438,15 @@
             border-radius: 5px;
             background-color: #2b2b2b;
             color: #ffffff;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
+
+        .light-mode .contact-form form input,
+        .light-mode .contact-form form textarea {
+            background-color: #ffffff;
+            color: #121212;
+        }
+
         .contact-form form button {
             background-color: #0cf;
             color: #ffffff;
@@ -406,17 +460,26 @@
             color: #121212;
         }
 
-        /* Footer with Social Media Links */
         .footer-content {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-between; /* Aligns text to the left and icons to the right */
             align-items: center;
             padding: 10px 20px;
+            transition: all 0.3s ease;
         }
+
+        .social-icons {
+            display: flex;
+            justify-content: flex-end; /* Aligns icons to the right */
+            position: relative;
+            right: 50px; /* Adjust this value as needed to ensure it's not blocked by the "Back to Top" button */
+        }
+
         .social-icons img {
             width: 25px;
             height: 25px;
-            margin: 0 10px;
+            margin-left: 10px; /* Space between icons */
+            transition: all 0.3s ease;
         }
 
         @media (max-width: 768px) {
@@ -685,9 +748,9 @@
 
     <!-- Testimonials Section -->
     <div class="testimonials">
-        <h2>What Our Members Say</h2>
-        <blockquote>"Joining the 10X Coding Club has been a game-changer for my coding skills!" - [Student Name]</blockquote>
-        <blockquote>"The collaborative projects have taught me so much about teamwork and problem-solving." - [Student Name]</blockquote>
+        <h2>What Our Members Say</h2><br>
+        <blockquote>"Joining the 10X Coding Club has been a game-changer for my coding and communication skills!" - Aryan Hande (Grade 11)</blockquote>
+        <blockquote>"The collaborative projects have taught me so much about problem-solving." - Pratosh (Grade 12)</blockquote>
     </div>
 
     <!-- Interactive Map Section -->
