@@ -271,6 +271,106 @@
             font-size: 1rem;
             font-family: 'Roboto', sans-serif;
         }
+
+        @media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        margin: 5px 0;
+        font-size: 1rem;
+    }
+
+    #home {
+        padding: 80px 20px;
+    }
+
+    #home h2 {
+        font-size: 2.5rem;
+    }
+
+    #home p {
+        font-size: 1.2rem;
+    }
+
+    .features {
+        flex-direction: column;
+    }
+
+    .feature-box {
+        max-width: 100%;
+        margin: 10px 0;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    #gallery img {
+        width: 150px;
+        height: 100px;
+        margin-right: 10px;
+    }
+
+    .project {
+        padding: 15px;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+
+    .prev, .next {
+        padding: 12px;
+    }
+
+    footer p {
+        font-size: 0.9rem;
+    }
+    
+        }
+
+        @media (max-width: 480px) {
+    header h1 {
+                font-size: 1.2rem;
+            }
+
+    nav a {
+        font-size: 0.9rem;
+    }
+
+    #home h2 {
+        font-size: 2rem;
+    }
+
+    #home p {
+        font-size: 1rem;
+    }
+
+    #gallery img {
+        width: 120px;
+        height: 80px;
+    }
+
+    .project h3 {
+        font-size: 1.2rem;
+    }
+
+    .project p {
+        font-size: 0.9rem;
+    }
+
+    footer p {
+        font-size: 0.8rem;
+    }
+        }
+
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -350,15 +450,16 @@
         <section>
             <h2 class="section-title">About Us</h2>
             <div>
-                <p><strong>Mission:</strong><br>
-                Our mission is to work together with members of the club on problem-solving projects related to AI and Web Development, conduct computer programming lessons with IICS students, and build coding skills in students to make them future-ready.</p>
-
+                <p><strong>Mission:</strong><br></p>
+                    <ul>
+                        <li>Our mission is to work together with members of the club on problem-solving projects related to AI and Web Development, conduct computer programming lessons with IICS students, and build coding skills in students to make them future-ready.<br></li>
+                    </ul> <br>
                 <p><strong>Activities:</strong></p>
                 <ul>
                     <li>Collaboration on projects that have a real-world impact (1 AI-themed project and 1 Web Development project)</li>
                     <li>Conducting periodical lessons on computer literacy and basic programming for IICS students</li>
                     <li>Preparation for and participation in hackathons/competitions as a team (representing 10X)</li>
-                </ul>
+                </ul><br>
 
                 <p><strong>Objectives:</strong></p>
                 <ul>
